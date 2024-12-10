@@ -1,7 +1,6 @@
 import { cn } from "@/lib/utils";
 import { MessageItem } from "@/type";
 import Image from "next/image";
-import ReactMarkdown from "react-markdown";
 
 export const ChatMessage = ({ messageItem }: { messageItem: MessageItem }) => {
   const botTemplate = () => {
@@ -17,7 +16,8 @@ export const ChatMessage = ({ messageItem }: { messageItem: MessageItem }) => {
           />
         </div>
         <div className="flex flex-col">
-          <ReactMarkdown>{messageItem.message}</ReactMarkdown>
+          {/* <ReactMarkdown>{messageItem.message}</ReactMarkdown> */}
+          <div dangerouslySetInnerHTML={{ __html: messageItem.message }} />
         </div>
       </div>
     );
