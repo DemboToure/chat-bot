@@ -5,8 +5,8 @@ import Image from "next/image";
 export const ChatMessage = ({ messageItem }: { messageItem: MessageItem }) => {
   const botTemplate = () => {
     return (
-      <div className="flex flex-row gap-3">
-        <div className=" w-[30px] h-[30px] ">
+      <div className="flex flex-row  gap-3">
+        <div className=" w-[30px] h-[30px] hidden sm:block ">
           <Image
             src="/bot-icon.png"
             width={28}

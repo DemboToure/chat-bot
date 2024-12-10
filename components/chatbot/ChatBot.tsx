@@ -113,7 +113,7 @@ export const ChatBot = () => {
 
   return (
     <>
-      <div className="bg-white flex flex-col justify-end ">
+      <div className="bg-white flex-col justify-end hidden sm:flex ">
         <div className="bg-black  h-[95%] w-20 rounded-tr-[30px] text-white p-5 flex flex-col items-center justify-between ">
           <div>
             <Menu onClick={reset} className="cursor-pointer" />
@@ -173,16 +173,16 @@ export const ChatBot = () => {
             {listMessage.length == 0 && (
               <div className="mt-32 ">
                 {index.length == 0 ? (
-                  <div className="w-full p-20 flex justify-center items-center gap-10">
+                  <div className="w-full p-20 flex justify-center items-center gap-10 flex-col sm:flex-row ">
                     <div
                       onClick={(e) => setIndex("playbook_ocs_features")}
-                      className="flex items-center justify-center cursor-pointer h-20 w-[300px] border-2 rounded-xl shadow-lg hover:shadow-xl "
+                      className="flex items-center justify-center cursor-pointer h-20 w-[200px] sm:w-[300px] border-2 rounded-xl shadow-lg hover:shadow-xl "
                     >
                       <h2 className="font-bold text-xl">Playbook</h2>
                     </div>
                     <div
                       onClick={(e) => setIndex("guideline_features")}
-                      className="flex items-center justify-center cursor-pointer h-20 w-[300px] border-2 rounded-xl shadow-lg hover:shadow-xl"
+                      className="flex items-center justify-center cursor-pointer h-20 w-[200px] sm:w-[300px] border-2 rounded-xl shadow-lg hover:shadow-xl"
                     >
                       <h2 className="font-bold text-xl">Guideline</h2>
                     </div>
@@ -191,21 +191,23 @@ export const ChatBot = () => {
                   <>
                     {index == "playbook_ocs_features" && (
                       <div className="flex justify-center">
-                        <div className="p-20 text-center">
-                          <h1 className="font-[1000] text-5xl">
-                            Découvrez le programme{" "}
+                        <div className=" p-0 sm:p-20 text-center">
+                          <h1 className=" font-bold text-sm sm:font-[1000] sm:text-5xl">
+                            Découvrez le <br className="  sm:hidden" />
+                            programme
                             <span className="text-[#ff7800] ">
+                              {" "}
                               Orange Corner Sénégal
                             </span>
                           </h1>
-                          <div className="flex justify-center gap-5 mt-5">
+                          <div className="flex justify-center gap-5 mt-5 flex-col sm:flex-row ">
                             <div
                               onClick={(e) =>
                                 handleShortCut(
                                   "C'est quoi le programme Orange Corner ?"
                                 )
                               }
-                              className="flex items-center justify-center cursor-pointer h-24 w-[350px] border-2 rounded-xl shadow-lg hover:shadow-xl"
+                              className="flex items-center justify-center cursor-pointer h-24 w-[250px] sm:w-[350px] border-2 rounded-xl shadow-lg hover:shadow-xl"
                             >
                               C'est quoi le programme Orange Corner ?
                             </div>
@@ -215,20 +217,20 @@ export const ChatBot = () => {
                                   "Comment se déroule le programme Orange Corner ?"
                                 )
                               }
-                              className="flex items-center justify-center cursor-pointer h-24 w-[350px] border-2 rounded-xl shadow-lg hover:shadow-xl"
+                              className="flex items-center justify-center cursor-pointer h-24 w-[250px] sm:w-[350px] border-2 rounded-xl shadow-lg hover:shadow-xl"
                             >
                               Comment se déroule le programme Orange Corner ?
                             </div>
                           </div>
 
-                          <div className="flex justify-center gap-5 mt-5">
+                          <div className="flex justify-center gap-5 mt-5 flex-col sm:flex-row">
                             <div
                               onClick={(e) =>
                                 handleShortCut(
                                   "Quelles sont les conditions pour intégrer le programme ?"
                                 )
                               }
-                              className="flex items-center justify-center cursor-pointer h-24 w-[350px] border-2 rounded-xl shadow-lg hover:shadow-xl"
+                              className="flex items-center justify-center cursor-pointer h-24 w-[250px] sm:w-[350px] border-2 rounded-xl shadow-lg hover:shadow-xl"
                             >
                               Quelles sont les conditions pour intégrer le
                               programme ?
@@ -239,7 +241,7 @@ export const ChatBot = () => {
                                   "Qui a initié le programme Orange Corner ?"
                                 )
                               }
-                              className="flex items-center justify-center cursor-pointer h-24 w-[350px] border-2 rounded-xl shadow-lg hover:shadow-xl"
+                              className="flex items-center justify-center cursor-pointer h-24 w-[250px] sm:w-[350px] border-2 rounded-xl shadow-lg hover:shadow-xl"
                             >
                               Qui a initié le programme Orange Corner ?
                             </div>
@@ -250,21 +252,23 @@ export const ChatBot = () => {
                     {index == "guideline_features" && (
                       <div className="flex justify-center">
                         <div className="p-20 text-center">
-                          <h1 className="font-[1000] text-5xl">
-                            Le guide du financement pour{" "}
+                          <h1 className="font-bold text-sm sm:font-[1000] sm:text-5xl">
+                            Le guide du financement{" "}
+                            <br className="  sm:hidden" /> pour
                             <span className="text-[#ff7800] ">
+                              {" "}
                               les entrepreneurs
                             </span>
                           </h1>
 
-                          <div className="flex justify-center gap-5 mt-5">
+                          <div className="flex justify-center gap-5 mt-5 flex-col sm:flex-row">
                             <div
                               onClick={(e) =>
                                 handleShortCut(
                                   "Quel type de financement puis je avoir ?"
                                 )
                               }
-                              className="flex items-center justify-center cursor-pointer h-24 w-[350px] border-2 rounded-xl shadow-lg hover:shadow-xl"
+                              className="flex items-center justify-center cursor-pointer h-24 w-[250px] sm:w-[350px]  border-2 rounded-xl shadow-lg hover:shadow-xl"
                             >
                               Quel type de financement puis je avoir ?
                             </div>
@@ -274,19 +278,19 @@ export const ChatBot = () => {
                                   "Quel sont les programmes disponibles ?"
                                 )
                               }
-                              className="flex items-center justify-center cursor-pointer h-24 w-[350px] border-2 rounded-xl shadow-lg hover:shadow-xl"
+                              className="flex items-center justify-center cursor-pointer h-24 w-[250px] sm:w-[350px]  border-2 rounded-xl shadow-lg hover:shadow-xl"
                             >
                               Quel sont les programmes disponibles ?
                             </div>
                           </div>
-                          <div className="flex justify-center gap-5 mt-5">
+                          <div className="flex justify-center gap-5 mt-5 flex-col sm:flex-row">
                             <div
                               onClick={(e) =>
                                 handleShortCut(
                                   "Comment soumettre sa candidature ?"
                                 )
                               }
-                              className="flex items-center justify-center cursor-pointer h-24 w-[350px] border-2 rounded-xl shadow-lg hover:shadow-xl"
+                              className="flex items-center justify-center cursor-pointer h-24 w-[250px] sm:w-[350px]  border-2 rounded-xl shadow-lg hover:shadow-xl"
                             >
                               Comment soumettre sa candidature ?
                             </div>
@@ -296,7 +300,7 @@ export const ChatBot = () => {
                                   "Quelles sont les programmes ouverts aux femmes ?"
                                 )
                               }
-                              className="flex items-center justify-center cursor-pointer h-24 w-[350px] border-2 rounded-xl shadow-lg hover:shadow-xl"
+                              className="flex items-center justify-center cursor-pointer h-24 w-[250px] sm:w-[350px] border-2 rounded-xl shadow-lg hover:shadow-xl"
                             >
                               Quelles sont les programmes ouverts aux femmes ?
                             </div>
