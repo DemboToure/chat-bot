@@ -147,7 +147,7 @@ export const ChatBot = () => {
             </div>
           </div>
         )}
-        <div className="w-[80%] h-screen">
+        <div className=" w-[95%] sm:w-[80%] h-screen">
           <div
             className={`w-full overflow-auto h-[90%]`}
             style={{ scrollbarWidth: "none" }}
@@ -193,33 +193,32 @@ export const ChatBot = () => {
                       <div className="flex justify-center">
                         <div className=" p-0 sm:p-20 text-center">
                           <h1 className=" font-bold text-sm sm:font-[1000] sm:text-5xl">
-                            Découvrez le <br className="  sm:hidden" />
-                            programme
+                            Mettre en place un{" "}
                             <span className="text-[#ff7800] ">
-                              {" "}
-                              Orange Corner Sénégal
+                              programme <br className="sm:hidden" />{" "}
+                              d'incubation à impact{" "}
                             </span>
                           </h1>
                           <div className="flex justify-center gap-5 mt-5 flex-col sm:flex-row ">
                             <div
                               onClick={(e) =>
                                 handleShortCut(
-                                  "C'est quoi le programme Orange Corner ?"
+                                  "Comment définir les modalités de sélection ?"
                                 )
                               }
                               className="flex items-center justify-center cursor-pointer h-24 w-[250px] sm:w-[350px] border-2 rounded-xl shadow-lg hover:shadow-xl"
                             >
-                              C'est quoi le programme Orange Corner ?
+                              Comment définir les modalités de sélection ?
                             </div>
                             <div
                               onClick={(e) =>
                                 handleShortCut(
-                                  "Comment se déroule le programme Orange Corner ?"
+                                  "Comment définir un plan de formation ?"
                                 )
                               }
                               className="flex items-center justify-center cursor-pointer h-24 w-[250px] sm:w-[350px] border-2 rounded-xl shadow-lg hover:shadow-xl"
                             >
-                              Comment se déroule le programme Orange Corner ?
+                              Comment définir un plan de formation ?
                             </div>
                           </div>
 
@@ -227,23 +226,22 @@ export const ChatBot = () => {
                             <div
                               onClick={(e) =>
                                 handleShortCut(
-                                  "Quelles sont les conditions pour intégrer le programme ?"
+                                  "Comment assurer le suivi des entrepreneurs ?"
                                 )
                               }
                               className="flex items-center justify-center cursor-pointer h-24 w-[250px] sm:w-[350px] border-2 rounded-xl shadow-lg hover:shadow-xl"
                             >
-                              Quelles sont les conditions pour intégrer le
-                              programme ?
+                              Comment assurer le suivi des entrepreneurs ?
                             </div>
                             <div
                               onClick={(e) =>
                                 handleShortCut(
-                                  "Qui a initié le programme Orange Corner ?"
+                                  "Comment garantir un accès au financement ?"
                                 )
                               }
                               className="flex items-center justify-center cursor-pointer h-24 w-[250px] sm:w-[350px] border-2 rounded-xl shadow-lg hover:shadow-xl"
                             >
-                              Qui a initié le programme Orange Corner ?
+                              Comment garantir un accès au financement ?
                             </div>
                           </div>
                         </div>
@@ -322,7 +320,7 @@ export const ChatBot = () => {
           </div>
 
           <div className="flex justify-center ">
-            <div className="pt-3  w-[80%] ">
+            <div className="pt-3 w-full sm:w-[80%] ">
               <div className="flex w-full items-center space-x-2">
                 <Input
                   className="rounded-3xl h-11 "
