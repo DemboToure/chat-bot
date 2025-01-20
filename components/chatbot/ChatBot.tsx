@@ -7,7 +7,7 @@ import { Download, Info, Loader2, Menu, Send } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
-import { ChatMessage } from "../chat-message";
+import ChatContainer from "../chat-container";
 
 const index_name = Constant.INDEX_NAME;
 const index_questions = index_name
@@ -18,7 +18,8 @@ export const ChatBot = () => {
   const messagesEndRef = useRef<HTMLInputElement>(null);
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-  const [listMessage, setListMessage] = useState<MessageItem[]>(messageData);
+  const [listMessage, setListMessage] = useState<MessageItem[]>([]);
+  const [history, setHistory] = useState<any[]>([]);
 
   const handleKeyDown = (event: any) => {
     if (event.key === "Enter" && message.length > 2) {
@@ -44,12 +45,15 @@ export const ChatBot = () => {
       const data = {
         query: mes,
         top_k: 7,
+        history: history,
       };
       const resp = await axios.post(
         process.env.NEXT_PUBLIC_API_URL + `?index=${Constant.INDEX_NAME}`,
         data
       );
       if (resp.status == 200) {
+        const _history = resp.data.history as any[];
+        setHistory(_history.slice(-5));
         const server_mesage: MessageItem = {
           id: generateRandomId(),
           message: resp.data.content,
@@ -77,7 +81,8 @@ export const ChatBot = () => {
       setListMessage((prev) => [...prev, client_mesage]);
       const data = {
         query: message,
-        top_k: 0,
+        top_k: 7,
+        history: history,
       };
       setMessage("");
       const resp = await axios.post(
@@ -85,6 +90,8 @@ export const ChatBot = () => {
         data
       );
       if (resp.status == 200) {
+        const _history = resp.data.history as any[];
+        setHistory(_history.slice(-5));
         const server_mesage: MessageItem = {
           id: generateRandomId(),
           message: resp.data.content,
@@ -221,10 +228,18 @@ export const ChatBot = () => {
               </div>
             )}
 
-            <div className=" w-full flex flex-col justify-end gap-4 pb-[100px] pt-[100px]">
-              {listMessage.map((item) => (
-                <ChatMessage key={item.id} messageItem={item} />
-              ))}
+            <div className="w-full flex flex-col justify-end gap-4 pb-[100px] pt-[100px]">
+              <div className="w-full sm:w-[80%]  mx-auto ">
+                <ChatContainer
+                  isLoading={isSubmitting}
+                  messages={listMessage.map((item) => ({
+                    id: item.id,
+                    text: item.message,
+                    isUser: item.side == "client",
+                  }))}
+                />
+              </div>
+
               <div ref={messagesEndRef} />
             </div>
           </div>
